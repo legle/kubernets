@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: apache
+  name: teste
   labels:
-    app: apache
+    app: teste
 spec:
   containers:
-    - name: apache
+    - name: teste
       image: php:7.4-apache
