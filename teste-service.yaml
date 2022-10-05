@@ -4,7 +4,7 @@ metadata:
   name: teste-service
 spec:
   selector:
-    app: apache
+    app: teste-pod
   ports:
     - port: 80
       targetPort: 80

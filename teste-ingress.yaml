@@ -2,16 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: teste-ingress
-  annotations:
-    kubernetes.io/ingress.class: ingress-nginx
+  # annotations:
+    # kubernetes.io/ingress.class: ingress-nginx
 spec:
   rules:
-  - http:
-    paths:
-    - pathType: Prefix
-      path: "/teste"
-      backend:
-        service:
-          name: teste-service
-          port:
-            number: 80
+  - host: localhost
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/teste"
+        backend:
+          service:
+            name: teste-service
+            port:
+              number: 80
