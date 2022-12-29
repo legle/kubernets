@@ -16,18 +16,18 @@ nodes:
   - containerPort: 443
     hostPort: 443
     protocol: TCP
-#   extraMounts:
-#   - hostPath: /mnt/c/Users/Leonardo.Gleison/dev/legle/kubernets/data
-#     containerPath: /data
+  extraMounts:
+  - hostPath: data
+    containerPath: /data
 - role: worker
-#   extraMounts:
-#   - hostPath: /mnt/c/Users/Leonardo.Gleison/dev/legle/kubernets/data
-#     containerPath: /data
+  extraMounts:
+  - hostPath: data
+    containerPath: /data
 - role: worker
-#   extraMounts:
-#   - hostPath: /mnt/c/Users/Leonardo.Gleison/dev/legle/kubernets/data
-#     containerPath: /data
-# - role: worker
-#   # extraMounts:
-#   # - hostPath: /mnt/c/Users/Leonardo.Gleison/dev/legle/kubernets/data
-#     # containerPath: /data
+  extraMounts:
+  - hostPath: data
+    containerPath: /data
+- role: worker
+  extraMounts:
+  - hostPath: data
+    containerPath: /data
