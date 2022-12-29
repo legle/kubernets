@@ -11,7 +11,7 @@ spec:
       taskRef:
         name: hello
     - name: goodbye
-      runAfter:
+      runAfter: # equivalente ao required
         - hello
       taskRef:
         name: goodbye

@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
-  name: hello-binding
+  name: trigger-binding-hello-goodbye
 spec: 
   params:
   - name: username

@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: hello-template
+  name: trigger-template-hello-goodbye
 spec:
   params:
   - name: username
