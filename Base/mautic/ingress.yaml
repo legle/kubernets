@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mautic-ingress
+  # annotations:
+    # kubernetes.io/ingress.class: ingress-nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: mautic.local.gd
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: mautic
+            port:
+              number: 80
+  - host: mautic.local.gd
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: mautic
+            port:
+              number: 443
