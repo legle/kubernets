@@ -8,6 +8,11 @@ spec:
   containers:
   - name: mautic-server
     image: mautic/mautic:v4
+    volumeMounts:
+    - name: mautic-var-storage
+      mountPath: /var/www/html/var
+    - name: mautic-config-storage
+      mountPath: /var/www/html/app/config
     env:
     - name: MAUTIC_DB_HOST
       value: mysql.default.svc.cluster.local
@@ -17,5 +22,14 @@ spec:
       value: root
     - name: MAUTIC_DB_PASSWORD
       value: password
-    
-
+    - name: MAUTIC_URL
+      value: http://mautic.local.gd
+    - name: MAUTIC_INSTALL_FORCE
+      value: "true"
+  volumes:
+  - name: mautic-var-storage
+    persistentVolumeClaim:
+      claimName: mautic-var-pvc
+  - name: mautic-config-storage
+    persistentVolumeClaim:
+      claimName: mautic-config-pvc

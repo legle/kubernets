@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: huginn-deployment
+  labels:
+    app: huginn
+    component: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: huginn
+      component: deployment
+  template:
+    metadata:
+      labels:
+        app: huginn
+        component: deployment
+    spec:
+      containers:
+      - name: huginn-deployment
+        image: huginn/huginn:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: huginn-configmap
+        - secretRef:
+            name: huginn-secrets
+        resources:
+          limits:
+            cpu: "1.0"
+            memory: "1024Mi"
+          requests:
+            cpu: "0.5"
+            memory: "256Mi"

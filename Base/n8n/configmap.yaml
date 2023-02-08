@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: n8n-configmap
+  name: huginn-configmap
   labels:
-    app: n8n
+    app: huginn
     component: configmap
 data:
-  NODE_ENV: "production"
-  N8N_PORT: "5678"
-  N8N_HOST: "n8n.local.gd"
-  N8N_EDITOR_BASE_URL: "http://n8n.local.gd/"
-  GENERIC_TIMEZONE: "America/Sao_Paulo"
-  DB_TYPE: "mysqldb"
-  DB_MYSQLDB_HOST: "mysql.default.svc.cluster.local"
-  DB_MYSQLDB_PORT: "3306"
-  DB_MYSQLDB_DATABASE: "n8n"
-  DB_MYSQLDB_USER: "root"
+  HUGINN_RAILS_ENV: "production"
+  HUGINN_DATABASE_ADAPTER: mysql2
+  HUGINN_DATABASE_HOST: mysql.default.svc.cluster.local
+  HUGINN_DATABASE_NAME: huginn
+  HUGINN_DATABASE_PORT: "3306"
+  HUGINN_DATABASE_USER: root
+  HUGINN_DO_NOT_CREATE_DATABASE: "true"
+  HUGINN_DO_NOT_SEED: "true"
+  HUGINN_DOMAIN: huginn.local.gd
+  HUGINN_PORT: "3000"

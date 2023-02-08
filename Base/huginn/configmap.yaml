@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: huginn-configmap
+  labels:
+    app: huginn
+    component: configmap
+data:
+  HUGINN_PORT: "3000"
+  HUGINN_DOMAIN: "huginn.local.gd"
+  HUGINN_DATABASE_ADAPTER: "mysql2"
+  HUGINN_DATABASE_HOST: "mysql.default.svc.cluster.local"
+  HUGINN_DATABASE_PORT: "3306"
+  HUGINN_DATABASE_NAME: "huginn"
+  HUGINN_DATABASE_USER: "root"
+  HUGINN_DO_NOT_CREATE_DATABASE: "true"
+  HUGINN_DO_NOT_SEED: "true"

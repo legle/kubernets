@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mautic-deployment
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: mautic-deployment
+  template:
+    metadata:
+      labels:
+        app: mautic-deployment
+    spec:
+      containers:
+      - name: mautic-deployment
+        image: mautic/mautic:v4
+        volumeMounts:
+        - name: mautic-var-storage
+          mountPath: /var/www/html/var
+        - name: mautic-config-storage
+          mountPath: /var/www/html/app/config
+        env:
+        - name: MAUTIC_DB_HOST
+          value: mysql.default.svc.cluster.local
+        - name: mautic
+          value: mautic
+        - name: MAUTIC_DB_USER
+          value: root
+        - name: MAUTIC_DB_PASSWORD
+          value: password
+        - name: MAUTIC_URL
+          value: http://mautic.local.gd
+        - name: MAUTIC_INSTALL_FORCE
+          value: "true"
+      volumes:
+      - name: mautic-var-storage
+        persistentVolumeClaim:
+          claimName: mautic-var-pvc
+      - name: mautic-config-storage
+        persistentVolumeClaim:
+          claimName: mautic-config-pvc

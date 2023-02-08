@@ -4,7 +4,7 @@ metadata:
   name: mautic
 spec:
   selector:
-    app: mautic-server
+    app: mautic-deployment
   ports:
     - name: http
       port: 80
