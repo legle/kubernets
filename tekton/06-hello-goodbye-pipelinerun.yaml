@@ -4,7 +4,7 @@ metadata:
   name: hello-goodbye-pipelinerun
 spec:
   pipelineRef:
-    name: hello-goodbye
+    name: hello-goodbye-pipeline
   params:
   - name: username
-    value: "Tekton"
+    value: "Tekton testing pipelinerun"

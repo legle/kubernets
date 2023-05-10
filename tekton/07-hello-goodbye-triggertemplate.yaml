@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: trigger-template-hello-goodbye
+  name: hello-goodbye-triggertemplate
 spec:
   params:
   - name: username
@@ -13,7 +13,7 @@ spec:
       generateName: hello-goodbye-run-
     spec:
       pipelineRef:
-        name: hello-goodbye
+        name: hello-goodbye-pipeline
       params:
       - name: username
         value: $(tt.params.username)

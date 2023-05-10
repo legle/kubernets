@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: el-hello-ingress
+  name: el-hello-goodbye-ingress
   namespace: default
   # annotations:
     # kubernetes.io/ingress.class: ingress-nginx
@@ -15,6 +15,6 @@ spec:
         path: /
         backend:
           service:
-            name: el-hello-listener
+            name: el-hello-goodbye-eventlistener
             port:
-              number: 8080
+              number: 80

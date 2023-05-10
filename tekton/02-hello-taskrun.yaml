@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: taskrun-hello
+  name: hello-taskrun
 spec:
   taskRef:
-    name: hello
+    name: hello-task

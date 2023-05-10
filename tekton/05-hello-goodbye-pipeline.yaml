@@ -1,20 +1,21 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: hello-goodbye
+  name: hello-goodbye-pipeline
 spec:
   params:
   - name: username
     type: string
+    default: teste-pipeline
   tasks:
     - name: hello
       taskRef:
-        name: hello
+        name: hello-task
     - name: goodbye
-      runAfter: # equivalente ao required
+      runAfter:
         - hello
       taskRef:
-        name: goodbye
+        name: goodbye-task
       params:
       - name: username
         value: $(params.username)
