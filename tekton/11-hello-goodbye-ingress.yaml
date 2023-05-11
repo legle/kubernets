@@ -17,4 +17,4 @@ spec:
           service:
             name: el-hello-goodbye-eventlistener
             port:
-              number: 80
+              number: 8080
