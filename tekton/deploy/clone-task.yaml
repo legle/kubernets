@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: clone-task
+spec:
+  steps:
+    - name: clone 
+      image: alpine/g
+      script: |
+        #!/bin/sh
+        echo "Hello World by leonardo"

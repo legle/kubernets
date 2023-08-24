@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bingo
+  labels:
+    app: bingo
+    component: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bingo
+      component: deployment
+  template:
+    metadata:
+      labels:
+        app: bingo
+        component: deployment
+    spec:
+      containers:
+      - name: bingo
+        image: inclunet/bin-go:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: 256Mi
+          requests:
+            cpu: "0.5"
+            memory: 128Mi
